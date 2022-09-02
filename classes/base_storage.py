@@ -1,38 +1,34 @@
-from exeptions import NotFoundItems, NotEnoughItems, NotPlaceForItems
-from classes.storage import Storage
+from abc import ABC, abstractmethod
 
 
-class BaseStorage(Storage):
-    def __init__(self):
-        self._items = dict()
-        self._capacity = 0
+class BaseStorage(ABC):
 
     @property
-    def capacity(self):
-        return self._capacity
-
-    @property
+    @abstractmethod
     def items(self):
-        return self._items
+        pass
 
+    @property
+    @abstractmethod
+    def capacity(self):
+        pass
+
+    @abstractmethod
     def add(self, title, count):
-        if count > self.get_free_space():
-            raise NotPlaceForItems('Нет свободного места')
-        self.items[title] = self.items.get(title, 0) + count
+        pass
 
+    @abstractmethod
     def remove(self, title, count):
-        if self.items.get(title) is None:
-            raise NotFoundItems('Нет такого товара')
-        if count < self.items.get(title):
-            self.items[title] = self.items.get(title) - count
-        elif count > self.items[title] or self.items[title] == 0:
-            raise NotEnoughItems('Не хватает товаров')
+        pass
 
-    def get_unique_items_count(self):
-        return len(set(self.items.keys()))
-
-    def get_items(self):
-        return self.items
-
+    @abstractmethod
     def get_free_space(self):
-        return self.capacity - sum(self.items.values())
+        pass
+
+    @abstractmethod
+    def get_items(self):
+        pass
+
+    @abstractmethod
+    def get_unique_items_count(self):
+        pass

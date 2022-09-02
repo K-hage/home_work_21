@@ -1,8 +1,8 @@
-from classes.base_storage import BaseStorage
+from classes.storage import Storage
 from exeptions import NotPlaceUniqueItems
 
 
-class Shop(BaseStorage):
+class Shop(Storage):
     def __init__(self):
         super().__init__()
         self._capacity = 20

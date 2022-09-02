@@ -1,4 +1,4 @@
-from classes.exeptions import RequestTextError, NotEnoughItems, NotFoundItems, NotPlaceUniqueItems, NotPlaceForItems
+from exeptions import RequestTextError, NotEnoughItems, NotFoundItems, NotPlaceUniqueItems, NotPlaceForItems
 from classes.request import Request
 from classes.shop import Shop
 from classes.store import Store

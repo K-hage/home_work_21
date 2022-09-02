@@ -1,4 +1,4 @@
-from classes.exeptions import RequestTextError
+from exeptions import RequestTextError
 
 
 class Request:

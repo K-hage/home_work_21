@@ -1,5 +1,5 @@
 from classes.base_storage import BaseStorage
-from classes.exeptions import NotPlaceUniqueItems
+from exeptions import NotPlaceUniqueItems
 
 
 class Shop(BaseStorage):

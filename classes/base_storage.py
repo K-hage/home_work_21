@@ -1,4 +1,4 @@
-from classes.exeptions import NotFoundItems, NotEnoughItems, NotPlaceForItems
+from exeptions import NotFoundItems, NotEnoughItems, NotPlaceForItems
 from classes.storage import Storage
 
 

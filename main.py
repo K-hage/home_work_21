@@ -1,4 +1,5 @@
-from exeptions import RequestTextError, NotEnoughItems, NotFoundItems, NotPlaceUniqueItems, NotPlaceForItems
+from exeptions import RequestTextError, NotEnoughItems, NotFoundItems, NotPlaceUniqueItems, NotPlaceForItems, \
+    NegativeCount
 from classes.request import Request
 from classes.shop import Shop
 from classes.store import Store
@@ -45,7 +46,8 @@ while True:
     except (NotEnoughItems,
             NotFoundItems,
             NotPlaceUniqueItems,
-            NotPlaceForItems) as e:
+            NotPlaceForItems,
+            NegativeCount) as e:
         print(e)
         continue
 

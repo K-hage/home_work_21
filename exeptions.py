@@ -16,3 +16,7 @@ class NotFoundItems(Exception):
 
 class RequestTextError(Exception):
     pass
+
+
+class NegativeCount(Exception):
+    pass

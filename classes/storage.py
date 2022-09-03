@@ -1,4 +1,4 @@
-from exeptions import NotFoundItems, NotEnoughItems, NotPlaceForItems
+from exeptions import NotFoundItems, NotEnoughItems, NotPlaceForItems, NegativeCount
 from classes.base_storage import BaseStorage
 
 
@@ -16,6 +16,8 @@ class Storage(BaseStorage):
         return self._items
 
     def add(self, title, count):
+        if not self._check_positive_count(count):
+            raise NegativeCount('Количество не может быть отрицательным')
         if count > self.get_free_space():
             raise NotPlaceForItems('Нет свободного места')
         self.items[title] = self.items.get(title, 0) + count
@@ -36,3 +38,7 @@ class Storage(BaseStorage):
 
     def get_free_space(self):
         return self.capacity - sum(self.items.values())
+
+    @staticmethod
+    def _check_positive_count(count):
+        return count > 0
